@@ -1,0 +1,715 @@
+html {
+    height: 100%;
+    overflow-y: scroll;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: url(background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: 'Poppins', sans-serif;
+    overflow: scroll;
+}
+
+/* Nav Menu (from all files) */
+#nav_menu {
+    background: rgba(25, 30, 56, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 999;
+}
+
+#nav_menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+#nav_menu ul li {
+    display: inline-block;
+    font-size: 20px;
+}
+
+#nav_menu ul li a {
+    display: block;
+    padding: 12px 15px;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+#nav_menu ul li a.active {
+    background: white;
+    color: #191E38;
+}
+
+#nav_menu ul li a:hover {
+    background: white;
+    color: #191E38;
+}
+
+/* Header Area (from all files) */
+#header_area {
+    font-style: italic;
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    width: 100%;
+    padding: 20px 0;
+}
+
+#title1::selection {
+    background-color: white;
+    color: #191E38;
+}
+
+/* Search  */
+#search {
+    margin-top: 20px;
+    text-align: center;
+    padding: 0 20px;
+}
+
+input {
+    padding: 10px 15px;
+    width: 300px;
+    font-size: 16px;
+    border: 2px solid #191E38;
+    border-radius: 8px;
+    outline: none;
+    background-color: white;
+    color: black;
+}
+
+input::placeholder {
+    color: #888;
+}
+
+#btn {
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    background: rgba(25, 30, 56, 0.6);
+    color: white;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    margin-left: 10px;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s;
+}
+
+#btn:hover {
+    background-color: white;
+    color: #191E38;
+}
+
+/* Index.html   */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+.card {
+    background-color: rgba(25, 30, 56, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100%;
+    max-width: 600px;
+    height: 250px;
+    display: flex;
+    margin: 0 auto;
+    backdrop-filter: blur(12px);
+}
+
+.card-content {
+    padding: 20px;
+    flex: 1;
+}
+
+.card-content h2 {
+    margin: 0;
+    font-size: 24px;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.card-content p {
+    color: white;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.card-image img {
+    width: 150px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 25px;
+}
+
+/* Books.html  */
+.book-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    padding: 20px;
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.book-card {
+    background: rgba(25, 30, 56, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    backdrop-filter: blur(12px);
+}
+
+.book-image {
+    flex: 0 0 200px;
+}
+
+.book-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.book-details {
+    flex: 1;
+    padding: 20px;
+    color: white;
+}
+
+.book-details h2 {
+    margin: 0 0 10px 0;
+    font-size: 24px;
+}
+
+.author {
+    color: #e0e0e0;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.description {
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.btn-read {
+    background: white;
+    color: #191E38;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.btn-read:hover {
+    background: #e0e0e0;
+}
+
+/* About.html  */
+.about-container {
+    width: 80%;
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.about-section, .mission-section {
+    background: rgba(25, 30, 56, 0.6);
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 30px;
+    backdrop-filter: blur(10px);
+}
+
+.about-section h2, .mission-section h2 {
+    color: white;
+    margin-top: 0;
+    font-size: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 10px;
+}
+
+.about-section p, .mission-section p {
+    color: white;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+/* Footer  */
+#footer_area {
+    background: rgba(25, 30, 56, 0.1);
+    backdrop-filter: blur(10px);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 20px;
+    width: 100%;
+    margin-top: auto;
+}
+
+
+
+/*  contact  */
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 20px;
+    gap: 30px;
+}
+
+.contact-info {
+    flex: 1;
+    background: rgba(25, 30, 56, 0.6);
+    border-radius: 8px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+}
+
+.contact-info h2 {
+    color: white;
+    margin-top: 0;
+    font-size: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 10px;
+}
+
+.contact-info p {
+    color: white;
+    font-size: 16px;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+}
+
+.contact-info .icon {
+    margin-right: 15px;
+    font-size: 20px;
+}
+
+/*  request   */
+.request-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.request-form {
+    background: rgba(25, 30, 56, 0.8);
+    border-radius: 8px;
+    padding: 30px;
+    backdrop-filter: blur(12px);
+    width: 100%;
+    box-sizing: border-box;
+    display: grid;
+    justify-content: center;
+    width: 100%;
+    background: rgba(25, 30, 56, 0.6);
+    backdrop-filter: blur(10px);
+}
+
+.form-group {
+    margin-bottom: 10px;
+    width: 27vw;
+    display: grid;
+    margin-right: 15px;
+}
+
+.form-group label {
+    display: block;
+    color: white;
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background: rgba(255, 255, 255, 0.9);
+    font-family: 'Poppins', sans-serif;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.btn-submit {
+    background: white;
+    color: #191E38;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    margin-left: 25px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    width: 300px;
+    transition: all 0.3s;
+}
+
+.btn-submit:hover {
+    background: #e0e0e0;
+}
+
+.form-title {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+}
+
+.required {
+    color: white;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #555;
+    font-style: italic;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border: 1.5px solid #191E38;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.button-group {
+    text-align: center;
+    display: grid;
+    justify-content: center;
+}
+
+#book-title {
+    width: 100%;
+}
+
+
+
+
+/* donate */
+.donate-container {
+    width: 80%;
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.donate-info {
+    background: rgba(25, 30, 56, 0.6);
+    border-radius: 8px;
+    padding: 30px;
+    margin-bottom: 30px;
+    backdrop-filter: blur(10px);
+}
+
+.donate-info h2 {
+    color: white;
+    margin-top: 0;
+    font-size: 24px;
+}
+
+.donate-info p {
+    color: white;
+    line-height: 1.6;
+}
+
+.donation-options {
+    display: flex;
+    gap: 20px;
+}
+
+.donation-card {
+    flex: 1;
+    background: rgba(25, 30, 56, 0.8);
+    border-radius: 8px;
+    padding: 25px;
+    backdrop-filter: blur(12px);
+}
+
+.donation-card h3 {
+    color: white;
+    margin-top: 0;
+}
+
+.donation-card p {
+    color: #e0e0e0;
+    margin-bottom: 20px;
+}
+
+.btn-donate {
+    background: white;
+    color: #191E38;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    transition: all 0.3s;
+}
+
+.btn-donate:hover {
+    background: #e0e0e0;
+}
+
+
+/* login */
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    overflow: hidden;
+}
+
+body.auth-page {
+    margin: 0 auto;
+    height: 100%;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: url(background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+}
+
+body::selection {
+    color: #191E38;
+    background: white;
+}
+
+#title1 {
+    font-size: 50px;
+    font-style: italic;
+    color: white;
+    font-weight: bold;
+}
+
+#title1::selection {
+    color: #191E38;
+    background: white;
+}
+
+#content_area {
+    width: 980px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 92px 0 112px;
+    align-items: center;
+}
+
+.left_side {
+    flex-basis: 540px;
+}
+
+.form_area {
+    flex-basis: 396px;
+}
+
+.form_area form {
+    background: rgba(25, 30, 56, 0.4);
+    border-radius: 8px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    width: 100%;
+    box-sizing: border-box;
+    display: grid;
+    justify-content: center;
+    text-align: center;
+}
+
+.form_area input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background: rgba(255, 255, 255, 0.9);
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 8px;
+}
+
+.form_area input[type="submit"],
+.form_area button[type="button"] {
+    background: white;
+    color: #191E38;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    width: 300px;
+    transition: all 0.3s;
+    justify-content: center;
+}
+
+.form_area input[type="submit"]:hover,
+.form_area button[type="button"]:hover {
+    background: #d3d0d0;
+}
+
+.form_area a {
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.form_area a:hover {
+    text-decoration: underline;
+}
+
+/* profile */
+.profile-container {
+    background: rgba(25, 30, 56, 0.6);
+    border-radius: 8px;
+    padding: 40px;
+    margin: 50px auto;
+    max-width: 600px;
+    backdrop-filter: blur(10px);
+    text-align: center;
+}
+
+.btn-logout {
+    background: white;
+    color: #191E38;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+    margin-top: 20px;
+}
+
+.btn-logout:hover {
+    background: #d3d0d0;
+}
+
+
+/* profile2 */
+.profile-container {
+    width: 80%;
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 30px;
+    background: rgba(25, 30, 56, 0.7);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+}
+
+.profile-info {
+    margin-bottom: 30px;
+}
+
+.profile-info h2 {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 10px;
+}
+
+.profile-info p {
+    color: white;
+    margin: 10px 0;
+}
+
+.profile-actions {
+    text-align: center;
+    margin-top: 30px;
+}
+
+
+
+
+html {
+    height: 100%;
+    overflow-y: auto; 
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden; 
+    overflow-y: visible; 
+    display: flex;
+    flex-direction: column;
+}
+
+
+.card-container, 
+.book-container, 
+.about-container, 
+.contact-container, 
+.request-container, 
+.donate-container {
+    overflow: visible; 
+    flex: 1; 
+}
+
+
+#nav_menu {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    
+}

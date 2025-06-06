@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reader's Den | Admin Log In</title>
+    <link rel="stylesheet" href="global.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="auth-page">
+    <section id="body_area">
+        <div id="content_area">
+            <div class="left_side">
+                <h1 id="title1">Reader's Den</h1>
+            </div>
+            
+            <div class="form_area">
+                <form id="loginForm">
+                    <input type="email" placeholder="Email Address or Id Number" required>
+                    <input type="password" placeholder="Password" required>
+                    <input type="submit" value="Log In">
+                    <!-- <a href="admin.html">Log In As Admin</a> -->
+                    <hr/>
+                    <button type="button" onclick="location.href='signup.html'">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer_area">
+        <p>&copy; 2025 Reader's Den. All rights reserved by SQL Masters.</p>
+    </footer>
+
+    <script>
+        <!-- Replace the script section with this: -->
+
+  document.getElementById('loginForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const email = this.querySelector('input[type="email"]').value;
+    const password = this.querySelector('input[type="password"]').value;
+    
+    try {
+      const response = await fetch('http://localhost:5000/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, password })
+      });
+      
+      const data = await response.json();
+      
+      if (data.success) {
+        localStorage.setItem('authToken', data.token);
+        localStorage.setItem('userEmail', data.user.email);
+        localStorage.setItem('userId', data.user.id);
+        localStorage.setItem('isAuthenticated', 'true');
+        window.location.href = 'index.html';
+      } else {
+        alert(data.message || 'Login failed');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('An error occurred during login');
+    }
+  });
+</script>
+</body>
+</html>

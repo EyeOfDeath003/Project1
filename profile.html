@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Profile | Reader's Den</title>
+    <link rel="stylesheet" href="global.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+
+    <nav id="nav_menu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="books.html">Books</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="request.html">Request</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="donate.html">Donate</a></li>
+            <li><a href="profile.html" class="active">Admin</a></li>
+        </ul>
+    </nav>
+
+    <header id="header_area">
+        <h1 id="title1">Your Profile</h1>
+    </header>
+
+    <div class="profile-container">
+        <div class="profile-info">
+            <h2>Account Details</h2>
+            <div id="userDetails">
+                <p>Loading your profile...</p>
+            </div>
+        </div>
+
+        <div class="profile-actions">
+            <button class="btn-logout" id="logoutBtn">Logout</button>
+        </div>
+    </div>
+
+    <footer id="footer_area">
+        <p>&copy; 2025 Reader's Den. All rights reserved by SQL Masters.</p>
+    </footer>
+
+    <!-- Replace the script section with this: -->
+<script>
+  // Check authentication
+  if (!localStorage.getItem('isAuthenticated') || !localStorage.getItem('userId')) {
+    window.location.href = "login.html";
+  }
+
+  // Fetch user profile data
+  document.addEventListener('DOMContentLoaded', async function() {
+    try {
+      const response = await fetch('http://localhost:5000/api/profile', {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('authToken')}`
+        }
+      });
+      
+      const data = await response.json();
+      
+      if (data.success) {
+        const user = data.user;
+        const userDetails = document.getElementById('userDetails');
+        userDetails.innerHTML = `
+          <p><strong>Name:</strong> ${user.firstName || 'Not set'} ${user.lastName || ''}</p>
+          <p><strong>Email:</strong> ${user.email}</p>
+          <p><strong>Member since:</strong> ${new Date(user.joinDate).toLocaleDateString()}</p>
+        `;
+      } else {
+        throw new Error(data.message || 'Failed to fetch profile');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      document.getElementById('userDetails').innerHTML = 
+        '<p>Error loading profile. Please try again later.</p>';
+    }
+  });
+
+  // Logout functionality
+  document.getElementById('logoutBtn').addEventListener('click', async function() {
+    try {
+      await fetch('http://localhost:5000/api/logout', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('authToken')}`
+        }
+      });
+      
+      localStorage.removeItem('isAuthenticated');
+      localStorage.removeItem('userEmail');
+      localStorage.removeItem('userId');
+      localStorage.removeItem('authToken');
+      window.location.href = "login.html";
+    } catch (error) {
+      console.error('Error during logout:', error);
+    }
+  });
+</script>
+</body>
+</html>
